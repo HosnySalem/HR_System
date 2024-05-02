@@ -1,0 +1,148 @@
+﻿@using Microsoft.AspNetCore.Authorization;
+@inject IAuthorizationService AuthorizationService
+
+@model IEnumerable<Employee>
+
+@{
+    ViewData["Title"] = "الموظفين";
+}
+
+<style>
+    .no-data {
+        max-width: 400px
+    }
+</style>
+
+@if (User.Identity.IsAuthenticated)
+        {
+            var canAccess = await AuthorizationService.AuthorizeAsync(User, "Permissions.Employee.Create");
+            if (canAccess.Succeeded)
+            {
+<div class="d-flex justify-content-start m-3 mb-4">
+    <a asp-action="Add" style="background-color: var(--main-color)" class="btn"> <i class="fa-solid fa-plus"></i> إضافة موظف جديد</a>
+</div>
+            }
+        }
+
+
+@*<div class="d-flex justify-content-start m-3 mb-4">
+    <a asp-action="Add" class="btn btn-success"> <i class="fa-solid fa-plus"></i> إضافة موظف جديد</a>
+</div>
+*@
+<div id="holidays-table" class="panel panel-default templatemo-content-widget white-bg no-padding templatemo-overflow-hidden">
+
+    <div class="panel-heading templatemo-position-relative" style="background-color: var(--main-color)">
+        <h2 class="text-uppercase text-center">بيانات الموظفين</h2>
+    </div>
+    @if (Model.Count() != 0)
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th class="text-center">الرقم القومي</th>
+                        <th class="text-center">اسم الموظف</th>
+                        <th class="text-center">رقم التليفون</th>
+                        <th class="text-center">تاريخ التعاقد</th>
+                        <th class="text-center">القسم</th>
+                        <th class="text-center">الراتب</th>
+                        <th class="text-center">موعد الحضور</th>
+                        <th class="text-center">موعد الإنصراف</th>
+                        <th class="text-center">العمليات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var emp in Model)
+                    {
+                        <tr id="id-@emp.Id">
+                            <td class="text-center">@emp.NationalID</td>
+                            <td class="text-center">@emp.Name</td>
+                            <td class="text-center">@emp.PhoneNumber</td>
+                            <td class="text-center">@emp.DateOfContract.ToString("dd/MM/yyyy")</td>
+                            <td class="text-center">@emp.Department.Name</td>
+                            <td class="text-center">@Convert.ToInt32(emp.Salary)</td>
+                            <td class="text-center">@emp.AttendanceTime.ToString("HH:mm")</td>
+                            <td class="text-center">@emp.DepartureTime.ToString("HH:mm")</td>
+                            <td class="text-center">
+                                @if (User.Identity.IsAuthenticated)
+        {
+            var canAccess = await AuthorizationService.AuthorizeAsync(User, "Permissions.Employee.Edit");
+            if (canAccess.Succeeded)
+            {
+                                <a asp-action="Edit" asp-route-id="@emp.Id" class="bi bi-pencil-square text-warning fs-5"></a>
+            }
+        }
+
+@*                                <a asp-action="Edit" asp-route-id="@emp.Id" class="bi bi-pencil-square text-warning fs-5"></a>
+*@
+                                                    @if (User.Identity.IsAuthenticated)
+        {
+            var canAccess = await AuthorizationService.AuthorizeAsync(User, "Permissions.Employee.Delete");
+            if (canAccess.Succeeded)
+            {
+<i style="cursor:pointer" onclick="DeleteEmployee('@emp.Id')" class="bi bi-trash3-fill text-danger fs-5"></i>
+            }
+        }
+
+@*<i style="cursor:pointer" onclick="DeleteEmployee('@emp.Id')" class="bi bi-trash3-fill text-danger fs-5"></i>
+*@                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="d-flex justify-content-center">
+            <img class="no-data" src="~/images/No data.gif" alt="لا يوجد موظفين" title="لا يوجد موظفين">
+        </div>
+    }
+</div>
+
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        function DeleteEmployee(id) {
+            Swal.fire({
+                title: 'هل أنت متأكد من الحذف؟',
+                text: "لن تستطيع استعادته!!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'نعم',
+                cancelButtonText: 'لا'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '/Employee/Delete/',
+                        method: 'GET',
+                        data: {
+                            Id: id
+                        },
+                        success: function (response) {
+                            let row = document.querySelector('#id-' + id)
+                            let body = document.querySelector('tbody')
+                            body.removeChild(row);
+                            Swal.fire({
+                                title:'تم الحذف',
+                                text:`تم حذف الموظف`,
+                                icon:'success',
+                                confirmButtonText: 'حسناً'
+                            })
+                            console.log('Request succeeded:', response);
+                        },
+                        error: function (xhr, status, error) {
+                            console.log('Request failed:', xhr.responseText);
+                        }
+                    });
+                }
+            })
+            
+        }
+    </script>
+
+}
