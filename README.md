@@ -1,6 +1,6 @@
 # HR System
 
-This Readme file provides an overview of the HR System, a web application built using ASP.NET Core 7. It outlines the features and functionalities of the system, guiding developers and users on how to use and interact with the application effectively.
+This Readme file provides an overview of the HR System, a web application built using ASP.NET Core 8. It outlines the features and functionalities of the system, guiding developers and users on how to use and interact with the application effectively.
 
 ## Table of Contents
 
