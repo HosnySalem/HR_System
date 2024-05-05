@@ -26,7 +26,7 @@ The HR System is a comprehensive web application designed to streamline HR proce
 To install and run the HR System on your local machine, follow these steps:
 
 1. Clone the project repository from [GitHub](https://github.com/your-hr-system-repo).
-2. Ensure that you have ASP.NET Core 7 installed on your machine.
+2. Ensure that you have ASP.NET Core 8 installed on your machine.
 3. Open the project in your preferred integrated development environment (IDE), such as Visual Studio or Visual Studio Code.
 4. Build the project to restore NuGet packages and compile the source code.
 5. Configure the database connection string in the appsettings.json file.
@@ -50,7 +50,7 @@ The HR System includes the following key features:
 
 The HR System utilizes the following technologies and frameworks:
 
-- **ASP.NET Core 7:** Web application framework for building scalable and secure applications.
+- **ASP.NET Core 8:** Web application framework for building scalable and secure applications.
 - **C#:** Modern, object-oriented programming language for the .NET ecosystem.
 - **Entity Framework Core:** Object-relational mapping (ORM) framework for data access.
 - **HTML5 & CSS3:** Markup and styling languages for creating a modern user interface.
