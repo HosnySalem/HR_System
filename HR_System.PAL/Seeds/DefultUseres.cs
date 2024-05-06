@@ -10,17 +10,82 @@ namespace HR_System.Seeds
     {
         public static async Task seedUser(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
         {
-            var defultUser = new AppUser
+            var defultUser1 = new AppUser
             {
                 fullName = "Mohamed Labn",
                 Email = "Labn@ITI.com",
                 UserName = "LabnITI"
             };
-            var user = await userManager.FindByEmailAsync(defultUser.Email);
-            if(user == null)
+            var user1 = await userManager.FindByEmailAsync(defultUser1.Email);
+            if(user1 == null)
             {
-                await userManager.CreateAsync(defultUser, "Labn@123456");
-                await userManager.AddToRoleAsync(defultUser, "Admin");
+                await userManager.CreateAsync(defultUser1, "Labn@12345");
+                await userManager.AddToRoleAsync(defultUser1, "Admin");
+            }
+
+            var defultUser2 = new AppUser
+            {
+                fullName = "Ahmed Magdy",
+                Email = "Magdy@ITI.com",
+                UserName = "MagdyITI"
+            };
+            var user2 = await userManager.FindByEmailAsync(defultUser2.Email);
+            if (user2 == null)
+            {
+                await userManager.CreateAsync(defultUser2, "Magdy@12345");
+                await userManager.AddToRoleAsync(defultUser2, "Admin");
+            }
+
+            var defultUser3 = new AppUser
+            {
+                fullName = "Hosny Salem",
+                Email = "Hosny@ITI.com",
+                UserName = "HosnyITI"
+            };
+            var user3 = await userManager.FindByEmailAsync(defultUser3.Email);
+            if (user3 == null)
+            {
+                await userManager.CreateAsync(defultUser3, "Hosny@12345");
+                await userManager.AddToRoleAsync(defultUser3, "Admin");
+            }
+
+            var defultUser4 = new AppUser
+            {
+                fullName = "Mohamed Mostafa",
+                Email = "Mohamed@ITI.com",
+                UserName = "MohamedITI"
+            };
+            var user4 = await userManager.FindByEmailAsync(defultUser4.Email);
+            if (user4 == null)
+            {
+                await userManager.CreateAsync(defultUser4, "Mohamed@12345");
+                await userManager.AddToRoleAsync(defultUser4, "Admin");
+            }
+
+            var defultUser5 = new AppUser
+            {
+                fullName = "Ahmed Tarek",
+                Email = "Ahmed@ITI.com",
+                UserName = "AhmedITI"
+            };
+            var user5 = await userManager.FindByEmailAsync(defultUser5.Email);
+            if (user5 == null)
+            {
+                await userManager.CreateAsync(defultUser5, "Ahmed@12345");
+                await userManager.AddToRoleAsync(defultUser5, "Admin");
+            }
+
+            var defultUser6 = new AppUser
+            {
+                fullName = "Mostafa Algohary",
+                Email = "Mostafa@ITI.com",
+                UserName = "MostafaITI"
+            };
+            var user6 = await userManager.FindByEmailAsync(defultUser6.Email);
+            if (user6 == null)
+            {
+                await userManager.CreateAsync(defultUser6, "Mostafa@12345");
+                await userManager.AddToRoleAsync(defultUser6, "Admin");
             }
             //TODO: seed Claims
             await roleManager.seedClaimsForAdmin();
