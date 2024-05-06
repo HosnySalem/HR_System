@@ -5,7 +5,7 @@
 @using System.Globalization
 
 @{
-    ViewData["Title"] = "الأجازات الرسمية";
+    ViewData["Title"] = "Official Holiday";
 }
 
 <style>
@@ -20,19 +20,15 @@
             if (canAccess.Succeeded)
             {
                 <div class="d-flex justify-content-start m-3 mb-4">
-                    <a asp-action="Add" style="background-color: var(--main-color)" class="btn"> <i class="fa-solid fa-plus"></i> إضافة أجازة</a>
+            <a asp-action="Add" style="background-color: var(--main-color)" class="btn"> <i class="fa-solid fa-plus"></i> Add Holiday</a>
                 </div>
             }
         }
 
-@*<div class="d-flex justify-content-start m-3 mb-4">
-    <a asp-action="Add" class="btn btn-success"> <i class="fa-solid fa-plus"></i> إضافة أجازة</a>
-</div>
-*@
 <div id="holidays-table" class="panel panel-default templatemo-content-widget white-bg no-padding templatemo-overflow-hidden">
 
     <div class="panel-heading templatemo-position-relative" style="background-color:#0d6efd">
-        <h2 class="text-uppercase text-center">الأجازات الرسمية</h2>
+        <h2 class="text-uppercase text-center">Official Holiday</h2>
     </div>
     @if (Model.Count() != 0)
     {
@@ -40,9 +36,9 @@
             <table class="table table-striped table-bordered ">
                 <thead>
                     <tr class="text-center fs-6">
-                        <th>الاســم</th>
-                        <th>التاريخ</th>
-                        <th>العمليات</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Permissions</th>
                     </tr>
                 </thead>
                 <tbody >
@@ -62,9 +58,7 @@
                                     }
                                     }
 
-@*                                <a asp-action="Edit" asp-route-id="@holiday.Id" class="bi bi-pencil-square text-warning"></a>
-
-*@  
+ 
                                 @if (User.Identity.IsAuthenticated)
                                    {
                                     var canAccess = await AuthorizationService.AuthorizeAsync(User, "Permissions.Holidays.Delete");
@@ -74,9 +68,7 @@
 
                                     }
                                     }
-
-@*<i style="cursor:pointer" onclick="Deleteholiday(@holiday.Id)" class="bi bi-trash3-fill text-danger"></i>
-*@                            </td>
+                          </td>
                         </tr>
                     }
                 </tbody>
@@ -86,7 +78,7 @@
     else
     {
         <div class="d-flex justify-content-center">
-            <img class="no-data" src="~/images/No data.gif" alt="لا توجد أجازات" title="لا توجد أجازات">
+            <img class="no-data" src="~/images/No data.gif" alt="No data" title="No data">
         </div>
     }
 </div>
@@ -100,14 +92,14 @@
 
         function Deleteholiday(id) {
             Swal.fire({
-                title: 'هل أنت متأكد من الحذف؟',
-                text: "لن تستطيع استعادته!!",
+                title: 'Are you sure to delete?',
+                text: "You won't be able to get it back!!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'نعم',
-                cancelButtonText: 'لا'
+                confirmButtonText: 'Yes',
+                cancelButtonText: 'No'
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
@@ -122,10 +114,10 @@
                             body.removeChild(row);
                             console.log('Request succeeded:', response);
                             Swal.fire({
-                                title: 'تم الحذف',
-                                text: `تم حذف أجازة ${response.name}`,
+                                title: 'Deleted',
+                                text: `${response.name} Holiday has been deleted `,
                                 icon: 'success',
-                                confirmButtonText: 'حسناً'
+                                confirmButtonText: 'Ok'
                             }).then((result) => {
                                 if (result.isConfirmed) {
                                     if (body.innerText == "") {

@@ -1,7 +1,7 @@
 ﻿@model Employee
 
 @{
-    ViewData["Title"] = "إضافة موظف";
+    ViewData["Title"] = "Add New Employee";
 }
 
 <style>
@@ -65,15 +65,15 @@
 <div class="parent mt-5">
     <div class="panel panel-default templatemo-content-widget white-bg no-padding templatemo-overflow-hidden">
         <div class="panel-heading templatemo-position-relative" style="background-color:#0d6efd">
-            <h2 class="text-uppercase">إضافة موظف</h2>
+            <h2 class="text-uppercase">Add New Employee</h2>
         </div>
         <form asp-action="Add" class="row p-3 mt-3">
             <div class="col-md-5 col-sm-12">
-                <h3 class="p-2 mb-3 text-center">البيانات الأساسية</h3>
+                <h3 class="p-2 mb-3 text-center">Personal data</h3>
 
                 <div class="form-group">
                     <div class="d-flex align-items-center justify-content-between">
-                        <label asp-for="Name" class="control-label fs-6 ms-2">اسم الموظف</label>
+                        <label asp-for="Name" class="control-label fs-6 ms-2">Employee Name</label>
                         <input type="text" asp-for="Name" class="form-control  w-75" />
                     </div>
                     <div class="d-flex justify-content-end">
@@ -82,7 +82,7 @@
                 </div>
                 <div class="form-group">
                     <div class="d-flex align-items-center justify-content-between">
-                        <label asp-for="Address" class="control-label fs-6 ms-2">العنوان</label>
+                        <label asp-for="Address" class="control-label fs-6 ms-2">Address</label>
                         <input type="text" asp-for="Address" class="form-control  w-75" />
                     </div>
                     <div class="d-flex justify-content-end">
@@ -91,7 +91,7 @@
                 </div>
                 <div class="form-group">
                     <div class="d-flex align-items-center justify-content-between">
-                        <label asp-for="PhoneNumber" class="control-label fs-6 ms-3">رقم التليفون</label>
+                        <label asp-for="PhoneNumber" class="control-label fs-6 ms-3">Phone Number</label>
                         <input type="text" asp-for="PhoneNumber" class="form-control  w-75" />
                     </div>
                     <div class="d-flex justify-content-end">
@@ -100,11 +100,11 @@
                 </div>
                 <div class="form-group">
                     <div class="d-flex align-items-center justify-content-between">
-                        <label asp-for="Gender" class="control-label fs-6 ms-2">النوع</label>
+                        <label asp-for="Gender" class="control-label fs-6 ms-2">Gender</label>
                         <select asp-for="Gender" class="form-select  w-75">
-                            <option value="">-- أختر النوع --</option>
-                            <option value="ذكر">ذكر</option>
-                            <option value="أنثى">أنثى</option>
+                            <option value="">--Select --</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                         </select>
                     </div>
                     <div class="d-flex justify-content-end">
@@ -113,7 +113,7 @@
                 </div>
                 <div class="form-group">
                     <div class="d-flex align-items-center justify-content-between">
-                        <label asp-for="Nationality" class="control-label fs-6 ms-2">الجنسية</label>
+                        <label asp-for="Nationality" class="control-label fs-6 ms-2">Nationality</label>
                         <input type="text" asp-for="Nationality" class="form-control  w-75" />
                     </div>
                     <div class="d-flex justify-content-end">
@@ -122,7 +122,7 @@
                 </div>
                 <div class="form-group">
                     <div class="d-flex align-items-center justify-content-between">
-                        <label asp-for="Birthdate" class="control-label fs-6 ms-2">تاريخ الميلاد</label>
+                        <label asp-for="Birthdate" class="control-label fs-6 ms-2">Birthdate</label>
                         <input asp-for="Birthdate" class="form-control datepicker  w-75" />
                     </div>
                     <div class="d-flex justify-content-end">
@@ -131,7 +131,7 @@
                 </div>
                 <div class="form-group">
                     <div class="d-flex align-items-center justify-content-between">
-                        <label asp-for="NationalID" class="control-label fs-6 ms-2">الرقم القومي</label>
+                        <label asp-for="NationalID" class="control-label fs-6 ms-2">National ID</label>
                         <input type="text" asp-for="NationalID" class="form-control w-75" />
                     </div>
                     <div class="d-flex justify-content-end">
@@ -141,11 +141,11 @@
             </div>
 
             <div class="col-md-5 col-sm-12">
-                <h3 class="p-2 mb-3 text-center">بيانات العمل</h3>
+                <h3 class="p-2 mb-3 text-center">Work data</h3>
 
                 <div class="form-group">
                     <div class="d-flex align-items-center justify-content-between">
-                        <label asp-for="DateOfContract" class="control-label fs-6 ms-2">تاريخ التعاقد</label>
+                        <label asp-for="DateOfContract" class="control-label fs-6 ms-2 mx-2">Hiring Date</label>
                         <input asp-for="DateOfContract" class="form-control datepicker w-75" />
                     </div>
                     <div class="d-flex justify-content-end">
@@ -154,9 +154,9 @@
                 </div>
                 <div class="form-group">
                     <div class="d-flex align-items-center justify-content-between">
-                        <label asp-for="DepartmentId" class="control-label fs-6 ms-2">القسم</label>
+                        <label asp-for="DepartmentId" class="control-label fs-6 ms-2 mx-2">Deptartments</label>
                         <select asp-for="DepartmentId" asp-items="@ViewBag.Deptartments" class="form-select w-75">
-                            <option value="">--اختر القسم--</option>
+                            <option value="">--Select Deptartment--</option>
                         </select>
                     </div>
                     <div class="d-flex justify-content-end">
@@ -165,7 +165,7 @@
                 </div>
                 <div class="form-group">
                     <div class="d-flex align-items-center justify-content-between">
-                        <label asp-for="Salary" class="control-label fs-6 ms-2">الراتب</label>
+                        <label asp-for="Salary" class="control-label fs-6 ms-2 mx-4">Salary</label>
                         <input type="number" asp-for="Salary" class="form-control w-75" />
                     </div>
                     <div class="d-flex justify-content-end">
@@ -174,7 +174,7 @@
                 </div>
                 <div class="form-group">
                     <div class="d-flex align-items-center justify-content-between">
-                        <label asp-for="AttendanceTime" class="control-label fs-6 ms-2">موعد حضور</label>
+                        <label asp-for="AttendanceTime" class="control-label fs-6 ms-2">Attendance Time</label>
                         <input asp-for="AttendanceTime" class="form-control w-75" type="time" step="60" />
                     </div>
                     <div class="d-flex justify-content-end">
@@ -183,7 +183,7 @@
                 </div>
                 <div class="form-group">
                     <div class="d-flex align-items-center justify-content-between">
-                        <label asp-for="DepartureTime" class="control-label fs-6 ms-2">موعد انصراف</label>
+                        <label asp-for="DepartureTime" class="control-label fs-6 ms-2">Departure Time</label>
                         <input asp-for="DepartureTime" class="form-control w-75" type="time" step="60" />
                     </div>
                     <div class="d-flex justify-content-end">
@@ -191,7 +191,7 @@
                     </div>
                 </div>
                 <div class="form-group mt-4 d-flex justify-content-center">
-                    <input type="submit" value="إضافـة" style="background-color: var(--main-color)" class="btn align-self-start w-50" />
+                    <input type="submit" value="Add" style="background-color: var(--main-color)" class="btn align-self-start w-50" />
                 </div>
             </div>
         </form>
