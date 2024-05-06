@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" dir="@(System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo.IsRightToLeft? "" : "ltr")">
-
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="utf-8" />
@@ -11,7 +10,7 @@
     <link rel="stylesheet" href="~/HR_System.PAL.styles.css" asp-append-version="true" />
     <link href="~/lib/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
-    <!-- Sweet Alert css-->
+    <!-- Sweet Alert CSS -->
     <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,53 +21,53 @@
         }
     </style>
 </head>
+
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">إدارة الموظفين</a>
+                <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Index">HR System</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav text-light">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                لوحة التحكم
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Dashboard
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
                                 <li>
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="user" asp-action="index">Users</a>
+                                    <a class="nav-link text-light" asp-area="" asp-controller="user" asp-action="index">Users</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="roles" asp-action="index">Grops</a>
+                                    <a class="nav-link text-light" asp-area="" asp-controller="roles" asp-action="index">Groups</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="GeneralSittings" asp-action="index">الإعدادات العامة</a>
+                                    <a class="nav-link text-light" asp-area="" asp-controller="GeneralSittings" asp-action="index">General Settings</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="OfficialHoliday" asp-action="index">الاجازات الرسمية</a>
+                                    <a class="nav-link text-light" asp-area="" asp-controller="OfficialHoliday" asp-action="index">Official Holiday</a>
                                 </li>
-                               
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                الموظفين
+                            <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Employees
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
                                 <li>
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="department" asp-action="index">الأقســام</a>
+                                    <a class="nav-link text-light" asp-area="" asp-controller="department" asp-action="index">Department</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="employee" asp-action="index">بيانات الموظفين</a>
+                                    <a class="nav-link text-light" asp-area="" asp-controller="employee" asp-action="index">Employee Details</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="attendence" asp-action="index">حضور الموظفين</a>
+                                    <a class="nav-link text-light" asp-area="" asp-controller="attendance" asp-action="index">Attendance</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="employeesSalaries" asp-action="index">رواتب الموظفين</a>
+                                    <a class="nav-link text-light" asp-area="" asp-controller="employeesSalaries" asp-action="index">Employee Salaries</a>
                                 </li>
                             </ul>
                         </li>
@@ -77,22 +76,20 @@
                         @if (User.Identity.IsAuthenticated == true)
                         {
                             <li class="nav-item">
-                                <i class="bi bi-person-circle nav-link text-dark"> Welcome @User.Identity.Name</i>
+                                <i class="bi bi-person-circle nav-link text-light"> Welcome @User.Identity.Name</i>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="account" asp-action="logout">تسجيل الخروج</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="account" asp-action="logout">Logout</a>
                             </li>
                         }
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="account" asp-action="login">تسجيل الدخول</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="account" asp-action="login">Login</a>
                             </li>
                         }
                     </ul>
                 </div>
-
-
             </div>
         </nav>
     </header>
@@ -104,7 +101,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container text-center">
-            &copy; 2023 - HR System Built For (ITI / Pioneer Solutions)
+            &copy; 2024 - HR System Built For (ITI / Pioneer Solutions)
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -115,4 +112,5 @@
     @await RenderSectionAsync("Scripts", required: false)
     @await RenderSectionAsync("newScript", required: false)
 </body>
+
 </html>

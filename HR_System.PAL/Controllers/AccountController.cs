@@ -15,6 +15,7 @@ namespace HR_System.PAL.Controllers
         {
             userManager = _userManager;
             signInManager = _signInManager;
+
         }
         public IActionResult LogIn()
         {

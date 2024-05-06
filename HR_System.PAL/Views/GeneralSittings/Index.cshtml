@@ -3,7 +3,7 @@
 
 @model GeneralSittings;
 @{
-    ViewData["Title"] = "الإعدادات العامة";
+    ViewData["Title"] = "General Sittings";
 
 }
 
@@ -47,86 +47,81 @@
             if (canAccess.Succeeded)
             {
 <div class="d-flex justify-content-start m-3 mb-4">
-    <a style="background-color: var(--main-color)" class="btn" asp-action="Add"><i class="fa-solid fa-plus"></i> إضافة اعدادات عامة جديدة</a>
+            <a style="background-color: var(--main-color)" class="btn" asp-action="Add"><i class="fa-solid fa-plus"></i> Add New General Sittings</a>
 </div>
 
             }
         }
 
-@*<div class="d-flex justify-content-start m-3 mb-4">
-    <a class="btn btn-success" asp-action="Add"><i class="fa-solid fa-plus"></i> إضافة اعدادات عامة جديدة</a>
-</div>
-*@
-
 <div id="holidays-table" class="panel panel-default templatemo-content-widget white-bg no-padding templatemo-overflow-hidden">
 
     <div style="background-color: #0d6efd" class="panel-heading templatemo-position-relative">
-        <h2 class="text-uppercase text-center">الإعدادات العامة</h2>
+        <h2 class="text-uppercase text-center">General Sittings</h2>
     </div>
 
     @if (Model is not null)
     {
         <div class="row">
             <div class="data-container col-md-6 col-sm-12 p-3">
-                <h3 class="p-2"><i class="bi bi-plus-slash-minus" style="color:#0d6efd; font-weight:bolder"></i> الزيادة والخصم</h3>
+                <h3 class="p-2"><i class="bi bi-plus-slash-minus" style="color:#0d6efd; font-weight:bolder"></i> Increase and discount</h3>
                 <div class="data-item">
-                    <div class="data-label me-4"><i class="fa-regular fa-clock"></i> الإضافــي: </div>
+                    <div class="data-label me-4"><i class="fa-regular fa-clock"></i> OverTime: </div>
                     @if (Model.overTime == 0)
                     {
-                        <div class="data-value ms-2"> &nbsp; لا يوجد</div>
+                        <div class="data-value ms-2"> &nbsp; Nothing</div>
                     }
                     else if (Model.overTime == 1)
                     {
-                        <div class="data-value ms-2"> &nbsp; ساعة</div>
+                        <div class="data-value ms-2"> &nbsp; One Hour</div>
                     }
                     else if (Model.overTime == 2)
                     {
-                        <div class="data-value ms-2"> &nbsp; ساعتين</div>
+                        <div class="data-value ms-2"> &nbsp; Tow Hours</div>
                     }
                     else
                     {
-                        <div class="data-value ms-2"> &nbsp; @Model.overTime ساعات</div>
+                        <div class="data-value ms-2"> &nbsp; @Model.overTime Hours</div>
                     }
                 </div>
                 <div class="data-item">
-                    <div class="data-label me-4"><i class="fa-regular fa-clock"></i> الخصــم: </div>
+                    <div class="data-label me-4"><i class="fa-regular fa-clock"></i> underTime: </div>
                     @if (Model.underTime == 0)
                     {
-                        <div class="data-value ms-2"> &nbsp; لا يوجد</div>
+                        <div class="data-value ms-2"> &nbsp; Nothing</div>
                     }
                     else if (Model.underTime == 1)
                     {
-                        <div class="data-value ms-2"> &nbsp; ساعة</div>
+                        <div class="data-value ms-2"> &nbsp; One Hour</div>
                     }
                     else if (Model.underTime == 2)
                     {
-                        <div class="data-value ms-2"> &nbsp; ساعتين</div>
+                        <div class="data-value ms-2"> &nbsp; Tow Hours</div>
                     }
                     else
                     {
-                        <div class="data-value ms-2"> &nbsp; @Model.underTime ساعات</div>
+                        <div class="data-value ms-2"> &nbsp; @Model.underTime Hours</div>
                     }
                 </div>
-                <h3 class="p-2 mt-2"><i class="fa-solid fa-mug-hot" style="color:#0d6efd"></i> الأجازات الأسبوعية</h3>
+                <h3 class="p-2 mt-2"><i class="fa-solid fa-mug-hot" style="color:#0d6efd"></i> Weekends</h3>
 
                 <div class="data-item">
-                    <div class="data-label me-4"><i class="fa-regular fa-calendar-days"></i> اليوم الأول:</div>
+                    <div class="data-label me-4"><i class="fa-regular fa-calendar-days"></i>  weekend Day1:</div>
                     <div class="data-value">&nbsp; @Model.week_end_Day1</div>
                 </div>
                 <div class="data-item">
-                    <div class="data-label me-4"><i class="fa-regular fa-calendar-days"></i> اليوم الثاني:</div>
+                    <div class="data-label me-4"><i class="fa-regular fa-calendar-days"></i> weekend Day2:</div>
                     <div class="data-value"> &nbsp; @Model.week_end_Day2</div>
                 </div>
             </div>
             <div class=" col-md-4 col-sm-12">
-                <img class="general-setttings" src="~/images/general settings.gif" alt="الإعدادات" title="الإعدادات">
+                <img class="general-setttings" src="~/images/general settings.gif" alt="settings" title="settings">
             </div>
         </div>
     }
     else
     {
-        <div class="d-flex justify-content-center"> 
-        <img class="general-setttings" src="~/images/No data.gif" alt="لا يوجد إعدادات" title="لا يوجد إعدادات">
+        <div class="d-flex justify-content-center">
+            <img class="general-setttings" src="~/images/No data.gif" alt="No data" title="No data">
         </div>
     }
 </div>
