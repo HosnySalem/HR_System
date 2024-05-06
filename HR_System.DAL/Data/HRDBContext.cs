@@ -34,7 +34,7 @@ namespace HR_System.DAL.Data
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
         //    optionsBuilder
-        //        .UseSqlServer("Server=localhost\\SQLEXPRESS;Database=HRDB;Trusted_Connection=True;TrustServerCertificate=True;");
+        //        .UseSqlServer("Server=.;Database=HRDB;Trusted_Connection=True;TrustServerCertificate=True;");
         //}
 
         //public DbSet<Role> Roles { get; set; }

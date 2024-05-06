@@ -15,7 +15,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @*<title>إدارة الموارد البشرية</title>*@
     <title>@ViewData["Title"]</title>
 
     <meta name="description" content="">
@@ -76,7 +75,7 @@
                     {
                         <div class="d-flex align-items-center mt-3">
                             <img style="width: 35px" src="~/images/profile.png" class="ms-2">
-                            <span class="text-white fs-6">مرحباً @User.Identity.Name</span>
+                            <span class="text-white fs-6">Welcome @User.Identity.Name</span>
 
                         </div>
 
@@ -97,7 +96,7 @@
                         var canAccess = await AuthorizationService.AuthorizeAsync(User, "Permissions.Roles.View");
                         if (canAccess.Succeeded)
                         {
-                            <li><a asp-controller="roles" asp-action="index"><i class="fa-solid fa-users"></i> المجموعات</a></li>
+                            <li><a asp-controller="roles" asp-action="index"><i class="fa-solid fa-users"></i> Groups</a></li>
 
                         }
                     }
@@ -109,7 +108,7 @@
                         {
                             @*                    <li><a asp-controller="home" asp-action="index" class="active"><i class="fa-solid fa-house"></i> القائمة الرئيسية</a></li>
                     *@
-                            <li><a asp-controller="user" asp-action="index"><i class="fa-solid fa-user-group"></i> المستخدمين</a></li>
+                            <li><a asp-controller="user" asp-action="index"><i class="fa-solid fa-user-group"></i> Users</a></li>
 
                         }
                     }

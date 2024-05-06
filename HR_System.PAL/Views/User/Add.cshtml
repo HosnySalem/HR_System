@@ -1,7 +1,7 @@
 ﻿@model HR_System.PAL.ViewModels.AppUserVM
 
 @{
-    ViewData["Title"] = "إضافة مستخدم جديد";
+    ViewData["Title"] = "Add New User";
 }
 
 <style>
@@ -68,10 +68,10 @@
 <div class="parent">
     <div class="panel panel-default templatemo-content-widget white-bg no-padding templatemo-overflow-hidden">
         <div class="panel-heading templatemo-position-relative" style="background-color:#0d6efd">
-            <h2 class="text-uppercase"> إضافة مستخدم جديد</h2>
+            <h2 class="text-uppercase"> Add New User</h2>
         </div>
         <form asp-action="Add" class="row p-3 mt-3">
-            <h5>المجموعة</h5>
+            <h5>Group</h5>
             @for (int i = 0; i < Model.Roles.Count; i++)
             {
                 <div class="form-check m-1">
@@ -83,8 +83,8 @@
             <hr />
             <div class="form-group">
                 <div class="d-flex align-items-center justify-content-between">
-                    <label asp-for="fullName" class="control-label fs-6 ms-2">الاسـم</label>
-                    <input asp-for="fullName" class="form-control w-75" placeholder="الاســم"/>
+                    <label asp-for="fullName" class="control-label fs-6 ms-2">Name</label>
+                    <input asp-for="fullName" class="form-control w-75" placeholder="Name" />
                 </div>
                 <div class="d-flex justify-content-end">
                     <span asp-validation-for="fullName" class="text-danger"></span>
@@ -92,8 +92,8 @@
             </div>
             <div class="form-group">
                 <div class="d-flex align-items-center justify-content-between">
-                    <label asp-for="userName" class="control-label fs-6 ms-2">اسم المستخدم</label>
-                    <input asp-for="userName" class="form-control w-75" placeholder="اسم المستخدم"/>
+                    <label asp-for="userName" class="control-label fs-6 ms-2">User Name</label>
+                    <input asp-for="userName" class="form-control w-75" placeholder="User Name" />
                 </div>
                 <div class="d-flex justify-content-end">
                     <span asp-validation-for="userName" class="text-danger"></span>
@@ -101,8 +101,8 @@
             </div>
             <div class="form-group">
                 <div class="d-flex align-items-center justify-content-between">
-                    <label asp-for="email" class="control-label fs-6 ms-2">البريد</label>
-                    <input asp-for="email" class="form-control w-75" placeholder="البريد الالكتروني"/>
+                    <label asp-for="email" class="control-label fs-6 ms-2">Email</label>
+                    <input asp-for="email" class="form-control w-75" placeholder="Email" />
                 </div>
                 <div class="d-flex justify-content-end">
                     <span asp-validation-for="email" class="text-danger"></span>
@@ -110,8 +110,8 @@
             </div>
             <div class="form-group">
                 <div class="d-flex align-items-center justify-content-between">
-                    <label asp-for="password" class="control-label fs-6 ms-2">كلمة المرور</label>
-                    <input asp-for="password" class="form-control w-75 py-2" placeholder="كلمة المرور"/>
+                    <label asp-for="password" class="control-label fs-6 ms-2">Password</label>
+                    <input asp-for="password" class="form-control w-75 py-2" placeholder="Password" />
                 </div>
                 <div class="d-flex justify-content-end">
                     <span asp-validation-for="password" class="text-danger"></span>
@@ -120,60 +120,12 @@
             
 
             <div class="form-group mt-4 d-flex justify-content-center">
-                <input type="submit" value="إضافـة" style="background-color: var(--main-color)" class="btn align-self-start fs-5 w-50" />
+                <input type="submit" value="Add" style="background-color: var(--main-color)" class="btn align-self-start fs-5 w-50" />
             </div>
         </form>
     </div>
 </div>
 
-@*<h4 class="text-center">إضافة مستخدم جديد</h4>
-<hr />
-<div class="row justify-content-center">
-    <div class="col-md-4">
-        <form asp-action="Add">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <h5>المجموعة</h5>
-            @for (int i = 0; i < Model.Roles.Count; i++)
-            {
-                <div class="form-check m-1">
-                    <input type="hidden" asp-for="@Model.Roles[i].DisplayValue" />
-                    <input asp-for="@Model.Roles[i].IsSelected" class="form-check-input" />
-                    <label asp-for="@Model.Roles[i].IsSelected" class="form-check-label">@Model.Roles[i].DisplayValue</label>
-                </div>
-            }
-            <span asp-validation-for="Roles" class="text-danger"></span>
-
-            <div class="form-group m-3">
-                <label asp-for="fullName" class="control-label">الاسم كامل</label>
-                <input asp-for="fullName" class="form-control" />
-                <span asp-validation-for="fullName" class="text-danger"></span>
-            </div>
-            <div class="form-group m-3">
-                <label asp-for="userName" class="control-label">اسم المستخدم</label>
-                <input asp-for="userName" class="form-control" />
-                <span asp-validation-for="userName" class="text-danger"></span>
-            </div>
-            <div class="form-group m-3">
-                <label asp-for="password" class="control-label">كلمة المرور</label>
-                <input asp-for="password" class="form-control" />
-                <span asp-validation-for="password" class="text-danger"></span>
-            </div>
-            <div class="form-group m-3">
-                <label asp-for="email" class="control-label">اسم البريد</label>
-                <input asp-for="email" class="form-control" />
-                <span asp-validation-for="email" class="text-danger"></span>
-            </div>
-            <div class="form-group m-3">
-                <input type="submit" value="إضافة" class="btn btn-Success" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a class="m-3 btn btn-warning" asp-action="Index">العودة لقائمة المستخدمين</a>
-</div>
-*@
 @section Scripts {
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>

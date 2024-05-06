@@ -12,14 +12,14 @@ namespace HR_System.Seeds
         {
             var defultUser = new AppUser
             {
-                fullName = "Mohamed Samir",
-                Email = "Samir@ITI.com",
-                UserName = "SamirITI"
+                fullName = "Mohamed Labn",
+                Email = "Labn@ITI.com",
+                UserName = "LabnITI"
             };
             var user = await userManager.FindByEmailAsync(defultUser.Email);
             if(user == null)
             {
-                await userManager.CreateAsync(defultUser, "Samir@123456");
+                await userManager.CreateAsync(defultUser, "Labn@123456");
                 await userManager.AddToRoleAsync(defultUser, "Admin");
             }
             //TODO: seed Claims

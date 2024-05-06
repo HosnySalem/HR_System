@@ -1,14 +1,13 @@
-﻿using Microsoft.CodeAnalysis.Scripting;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace HR_System.PAL.ViewModels
 {
     public class LogInVM
     {
-        [Required(ErrorMessage ="هذا الحقل مطلوب")]
+        [Required]
         public string userName { get; set; }
 
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required]
         [DataType(DataType.Password)]
         public string password { get; set; }
 
