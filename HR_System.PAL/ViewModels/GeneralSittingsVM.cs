@@ -7,13 +7,13 @@ namespace HR_System.PAL.ViewModels
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage="هذا الحقل مطلوب")]
+        [Required]
         public int overTime { get; set; }
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required]
         public int underTime { get; set; }
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required]
         public string week_end_Day1 { get; set; }
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required]
         public string week_end_Day2 { get; set; }
 
         public DateTime date { get; set; }= DateTime.Now;

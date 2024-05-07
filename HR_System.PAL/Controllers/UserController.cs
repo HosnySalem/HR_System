@@ -67,13 +67,13 @@ namespace HR_System.PAL.Controllers
 
                 if (!userVM.Roles.Any(x => x.IsSelected))
                 {
-                    ModelState.AddModelError("Roles", "من فضلك اختر مجموعة");
+                    ModelState.AddModelError("Roles", "Please select a group");
                     return View(userVM);
                 }
 
                 if (await appuserRepo.FindByEmailAsync(userVM.userName) != null)
                 {
-                    ModelState.AddModelError("UserName", "هذا الاسم تم استخدامه من قبل");
+                    ModelState.AddModelError("UserName", "This name has been used before");
                     return View(userVM);
                 }
 

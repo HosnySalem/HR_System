@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace HR_System.DAL.Models
 {
-    //المجموعه
     public class Role
     {
         public int Id { get; set; }

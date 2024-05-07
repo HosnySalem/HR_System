@@ -38,13 +38,13 @@ namespace HR_System.PAL.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", "كلمة المرور خاطئة");
+                        ModelState.AddModelError("", "The password is incorrect");
                     }
 
                 }
                 else
                 {
-                    ModelState.AddModelError("", "اسم المستخدم خاطئ");
+                    ModelState.AddModelError("", "Invalid username");
                 }
 
             }

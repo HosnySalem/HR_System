@@ -3,8 +3,8 @@ namespace HR_System.PAL.ViewModels
 {
     public class RoleViewModel
     {
-        [Display(Name="أسم المجموعة")]
-        [Required(ErrorMessage = "من فضلك ادخل اسم المجموعة ")]
+        [Display(Name="Group Name")]
+        [Required(ErrorMessage = "Please enter group Name ")]
         public string Name { get; set; }
         
         

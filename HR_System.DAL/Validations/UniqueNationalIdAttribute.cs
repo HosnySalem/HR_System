@@ -24,7 +24,7 @@ namespace HR_System.DAL.Validations
 
             if (employeeFromDB is not null)
             {
-                return new ValidationResult("الرقم القومي مُسجل بالفعل");
+                return new ValidationResult("This NationalId already exists");
             }
             return ValidationResult.Success;
         }

@@ -13,49 +13,49 @@ namespace HR_System.DAL.Models
     {
         public int Id { get; set; }
 
-        [RegularExpression(@"^\d{14}$", ErrorMessage = "يجب أن يكون الرقم القومي 14 رقم")]
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [RegularExpression(@"^\d{14}$", ErrorMessage = "The national number must be 14 numbers")]
+        [Required]
         [UniqueNationalId]
         public string NationalID { get; set; }
 
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required]
         public string Address { get; set; }
 
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
-        [RegularExpression(@"^01[0125]\d{8}$", ErrorMessage = "من فضلك أدخل رقم تليفون صحيح")]
+        [Required]
+        [RegularExpression(@"^01[0125]\d{8}$", ErrorMessage = "Please enter a valid Phone Number")]
         public string PhoneNumber { get; set; }
 
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required]
         [DataType(DataType.Date)]
         [Column(TypeName = "DATE")]
         [AgeGreaterThanOrEqual20]
         public DateTime Birthdate { get; set; }
 
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required]
         public string Gender { get; set; }
 
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required]
         public string Nationality { get; set; }
 
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required]
         [DataType(DataType.Date)]
         [Column(TypeName = "DATE")]
         // هنا في validation في حالة ان تاريخ التعاقد أقل من تاريخ إنشاء الشركة
         public DateTime DateOfContract { get; set; }
 
-        [Range(0, int.MaxValue, ErrorMessage = "من فضلك أدخل راتب صحيح")]
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Range(0, int.MaxValue, ErrorMessage = "Please enter a valid salary")]
+        [Required]
         [DataType(DataType.Currency)]
         public decimal Salary { get; set; }
 
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required]
         [DataType(DataType.Time)]
         public DateTime AttendanceTime { get; set; }
 
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required]
         [DataType(DataType.Time)]
         public DateTime DepartureTime { get; set; }
 
@@ -64,7 +64,7 @@ namespace HR_System.DAL.Models
         public Department? Department { get; set; }
 
         [ForeignKey("Department")]
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required]
         public int? DepartmentId { get; set; }
 
 

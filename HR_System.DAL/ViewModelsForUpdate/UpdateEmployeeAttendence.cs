@@ -11,19 +11,19 @@ namespace HR_System.DAL.ViewModelsForUpdate
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required]
         public DateTime AttendenceTime { get; set; }
 
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required]
         public DateTime LeavingTime { get; set; }
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required]
 
         public DateTime DayDate { get; set; }
 
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required]
         public int EmployeeId { get; set; }
 
-        [Required(ErrorMessage = "هذا الحقل مطلوب")]
+        [Required]
         public int? DepartmentId { get; set; }
 
     }

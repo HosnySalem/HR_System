@@ -23,7 +23,7 @@ namespace HR_System.DAL.Validations
             Department? departmentFromDB = context.Departments.FirstOrDefault(dept => dept.Name.ToLower() == departmentName.ToLower());
 
             if (departmentFromDB is not null)
-                return new ValidationResult("هذا القسم موجود بالفعل");
+                return new ValidationResult("This section already exists");
             
             return ValidationResult.Success;
         }

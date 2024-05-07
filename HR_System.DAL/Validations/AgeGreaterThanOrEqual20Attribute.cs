@@ -20,7 +20,7 @@ namespace HR_System.DAL.Validations
             }
             if (age < 20)
             {
-                return new ValidationResult("يجب ألا يقل عمر الموظف عن 20 سنة");
+                return new ValidationResult("The employee must be at least 20 years old");
             }
             return ValidationResult.Success;
         }
