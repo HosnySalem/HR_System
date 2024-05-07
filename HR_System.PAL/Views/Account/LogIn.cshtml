@@ -7,7 +7,7 @@
     ViewData["Title"] = "LogIn";
 }
 
-<style>
+@* <style>
     
     *,
     *:before,
@@ -170,9 +170,9 @@
             </label>
         </div>
 
-        @*<button type="submit" class="btn rounded-pill">Login</button>*@
+@*         <button type="submit" class="btn rounded-pill">Login</button> *@
 
-        <div class="text-white text-center">
+@*         <div class="text-white text-center">
             <p class="small pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
             <div class="d-flex justify-content-center text-center pt-2 ">
                 <a href="#!"><i class="bi bi-facebook bi-lg mx-4 px-2 text-white"></i></a>
@@ -185,7 +185,81 @@
         </div>
 
     </form> 
-</body>
+</body>  *@
 
+
+<!-- Section: Design Block -->
+<section class="text-center">
+    <!-- Background image -->
+    <div class="p-5 bg-image" style="
+        background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
+background-size:cover;
+background-position-y:center;
+        height: 400px;
+        "></div>
+    <!-- Background image -->
+
+    <div class="card mx-4 mx-md-5 shadow-5-strong bg-body-tertiary py-3" style="
+        margin-top: -200px;
+        backdrop-filter: blur(30px);
+         background-color: rgba(256, 256, 256, 0.3);>
+        <div class="card-body py-5 px-md-5 " ">
+
+            <div class="row d-flex justify-content-center" >
+                <div class="col-lg-8">
+                    
+                    <form asp-action="LogIn">
+                        <h2 class="fw-bold mb-3 text-primary">Login</h2>
+                        <p class=" mb-4 mx-2">Please enter your login and password!</p>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <!-- Username input -->
+                        <div data-mdb-input-init class="form-outline mb-4">
+                            <label class="form-label" asp-for="userName">Username</label>
+                            <input asp-for="userName" class="form-control form-control-lg" placeholder="Username" />
+                            <span asp-validation-for="userName" class="text-danger"></span>
+                        </div>
+
+                        <!-- Password input -->
+                        <div data-mdb-input-init class="form-outline mb-4">
+                            <label class="form-label" asp-for="password">Password</label>
+                            <input asp-for="password" class="form-control form-control-lg" placeholder="Password" />
+                            <span asp-validation-for="password" class="text-danger"></span>
+                        </div>
+
+                        <!-- Checkbox -->
+                        <div class="form-check d-flex justify-content-center f-bold mb-4">
+                            <input type="checkbox" class="orm-check-input me-2" asp-for="rememberMe" checked />
+                            <label class="form-check-label mx-2">Remember me </label>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-primary btn-lg px-5 col-12 rounded-pill" type="submit">Login</button>
+
+                        <!-- Register buttons -->
+                        <div class="text-center pt-3">
+                            <p>or sign up with:</p>
+                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                                <i class="bi bi-facebook"></i>
+                            </button>
+
+                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                                <i class="bi bi-google"></i>
+                            </button>
+
+                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                                <i class="bi bi-twitter"></i>
+                            </button>
+
+                            <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                                <i class="bi bi-github"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section: Design Block -->
 
 
