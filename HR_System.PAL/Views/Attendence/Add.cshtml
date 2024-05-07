@@ -1,7 +1,7 @@
 ﻿@model HR_System.PAL.ViewModels.AddAttendenceDataVMcs
 
 @{
-    ViewData["Title"] = "تسجيل حضور الموظفين";
+    ViewData["Title"] = "Recording employee attendance";
 }
 
 
@@ -69,15 +69,14 @@
 <div class="parent">
     <div class="panel panel-default templatemo-content-widget white-bg no-padding templatemo-overflow-hidden">
         <div class="panel-heading templatemo-position-relative" style="background-color:#0d6efd">
-            <h2 class="text-uppercase">حضور وانصراف</h2>
+            <h2 class="text-uppercase">Attendance and departure</h2>
         </div>
         <form asp-action="Add" class="row p-3 mt-3">
-            @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
             <div class="form-group">
                 <div class="d-flex align-items-center justify-content-between">
-                    <label asp-for="DepartmentId" class="control-label">القسم</label>
+                    <label asp-for="DepartmentId" class="control-label">Department</label>
                     <select asp-for="DepartmentId" asp-items="@ViewBag.Deptartments" onchange="GetEmployees()" class="form-control w-75">
-                        <option value="0">--اختر القسم--</option>
+                        <option value="0">--Select Department--</option>
                     </select>
                 </div>
                 <div class="d-flex justify-content-end">
@@ -86,7 +85,7 @@
             </div>
             <div class="form-group">
                 <div class="d-flex align-items-center justify-content-between">
-                    <label asp-for="EmployeeId" class="control-label">اسم الموظف</label>
+                    <label asp-for="EmployeeId" class="control-label">Employee Name </label>
                     <select asp-for="EmployeeId" name="EmployeeId" id="EmployeeId" class="form-control w-75">
                     </select>
                 </div>
@@ -97,7 +96,7 @@
             
             <div class="form-group">
                 <div class="d-flex align-items-center justify-content-between">
-                    <label asp-for="AttendenceTime" class="control-label ">موعد الحضور</label>
+                    <label asp-for="AttendenceTime" class="control-label ">Attendence Time </label>
                     <input asp-for="AttendenceTime" class="form-control w-75" type="time" />
                 </div>
                 <div class="d-flex justify-content-end">
@@ -106,7 +105,7 @@
             </div>
             <div class="form-group">
                 <div class="d-flex align-items-center justify-content-between">
-                    <label asp-for="LeavingTime" class="control-label">موعد الإنصراف</label>
+                    <label asp-for="LeavingTime" class="control-label">Leaving Time </label>
                     <input asp-for="LeavingTime" class="form-control w-75" type="time" />
                 </div>
                 <div class="d-flex justify-content-end">
@@ -115,7 +114,7 @@
             </div>
             <div class="form-group">
                 <div class="d-flex align-items-center justify-content-between">
-                    <label asp-for="DayDate" class="control-label ">تاريخ اليوم</label>
+                    <label asp-for="DayDate" class="control-label ">Day Date </label>
                     <input asp-for="DayDate" class="form-control w-75" type="date" />
                 </div>
                 <div class="d-flex justify-content-end">
@@ -124,7 +123,7 @@
             </div>
 
             <div class="form-group mt-4 d-flex justify-content-center">
-                <input type="submit" value="إضافـة" style="background-color: var(--main-color)" class="btn align-self-start fs-5 w-50" />
+                <input type="submit" value="Add" style="background-color: var(--main-color)" class="btn align-self-start fs-5 w-50" />
             </div>
         </form>
     </div>

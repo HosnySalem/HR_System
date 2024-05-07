@@ -4,16 +4,16 @@
 @model List<EmployeeAttendenceDataVM>
 
 @{
-    ViewData["Title"] = "بيانات حضور الموظفين";
+    ViewData["Title"] = "Employee Attendence Data";
     int i = 1;
     Dictionary<string, string> dayName = new Dictionary<string, string>();
-    dayName["Saturday"] = "السبت";
-    dayName["Sunday"] = "الأحد";
-    dayName["Monday"] = "الإثنين";
-    dayName["Tuesday"] = "الثلاثاء";
-    dayName["Wednesday"] = "الأربعاء";
-    dayName["Thursday"] = "الخميس";
-    dayName["Friday"] = "الجمعة";
+    dayName["Saturday"] = "Saturday";
+    dayName["Sunday"] = "Sunday";
+    dayName["Monday"] = "Monday";
+    dayName["Tuesday"] = "Tuesday";
+    dayName["Wednesday"] = "Wednesday";
+    dayName["Thursday"] = "Thursday";
+    dayName["Friday"] = "Friday";
 }
 <style>
     td{
@@ -24,17 +24,17 @@
 
 <div class="templatemo-content-container mb-0">
     <div class="templatemo-content-widget white-bg">
-        <input type="text" id="search" class="form-control" oninput="searchByEmployeeNameOrDepartmentName()" placeholder="بحث باسم الموظف أو القسم" />
+        <input type="text" id="search" class="form-control" oninput="searchByEmployeeNameOrDepartmentName()" placeholder="Search by employee or department name" />
         <span class="text-danger error-msg"></span>
         <div class="d-flex align-items-center gap-3 my-3">
-            <span>من</span>
+            <span>From</span>
             <input id="from" type="date" class="from form-control datepicker" />
             <span class="text-danger"></span>
-            <span>إلى</span>
+            <span>To</span>
             <input id="to" type="date" class="form-control datepicker" />
             <span class="to text-danger"></span>
 
-            <button style="background-color: var(--main-color)" class="btn" onclick="searchByDate()">بحث</button>
+            <button style="background-color: var(--main-color)" class="btn" onclick="searchByDate()">Search</button>
         </div>
 
     </div>
@@ -44,20 +44,16 @@
             var canAccess = await AuthorizationService.AuthorizeAsync(User, "Permissions.Attendance.Create");
             if (canAccess.Succeeded)
             {
-<div class="d-flex justify-content-start me-3 mb-4">
-    <a style="background-color: var(--main-color)" class="btn" asp-action="Add"><i class="fa-solid fa-plus"></i> إضافة حضور وانصراف</a>
+<div class="d-flex justify-content-start me-3 mb-4 mx-3">
+            <a style="background-color: var(--main-color)" class="btn" asp-action="Add"><i class="fa-solid fa-plus"></i> Add attendance and departure</a>
 </div>
             }
         }
 
-@*<div class="d-flex justify-content-start me-3 mb-4">
-    <a class="btn btn-success" asp-action="Add"><i class="fa-solid fa-plus"></i> إضافة حضور وانصراف</a>
-</div>
-*@
 <div id="holidays-table" class="table-content panel panel-default templatemo-content-widget white-bg no-padding templatemo-overflow-hidden">
 
     <div class="panel-heading templatemo-position-relative " style="background-color:#0d6efd">
-        <h2 class="text-uppercase text-center">تقرير حضور وانصراف الموظفين</h2>
+        <h2 class="text-uppercase text-center">Employee attendance and departure report</h2>
     </div>
     @if (Model.Count() != 0)
     {
@@ -65,13 +61,13 @@
             <table class="table table-striped table-bordered ">
                 <thead>
                     <tr>
-                        <th class="text-center">م</th>
-                        <th class="text-center">القسم</th>
-                        <th class="text-center">اسم الموظف</th>
-                        <th class="text-center">موعد الحضور</th>
-                        <th class="text-center">موعد الإنصراف</th>
-                        <th class="text-center">التاريخ</th>
-                        <th class="text-center">العمليات</th>
+                        <th class="text-center">#</th>
+                        <th class="text-center">Department</th>
+                        <th class="text-center">Employee Name</th>
+                        <th class="text-center">Attendance Time </th>
+                        <th class="text-center">Leaving Time </th>
+                        <th class="text-center">Date</th>
+                        <th class="text-center">Permissions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -94,9 +90,7 @@
                                 <a asp-action="Edit" asp-route-id="@attend.Id" class="bi bi-pencil-square text-warning fs-5"></a>
             }
         }
-
-@*                                <a asp-action="Edit" asp-route-id="@attend.Id" class="bi bi-pencil-square text-warning fs-5"></a>
-*@  
+ 
                                 @if (User.Identity.IsAuthenticated)
         {
             var canAccess = await AuthorizationService.AuthorizeAsync(User, "Permissions.Attendance.Delete");
@@ -104,10 +98,7 @@
             {
 <i style="cursor:pointer" onclick="DeleteAttendance(@attend.Id)" class="bi bi-trash3-fill text-danger fs-5"></i>
             }
-        }
-
-@*<i style="cursor:pointer" onclick="DeleteAttendance(@attend.Id)" class="bi bi-trash3-fill text-danger fs-5"></i>
-*@                            </td>
+        }</td>
                         </tr>
                     }
                 </tbody>
@@ -117,7 +108,7 @@
     else
     {
         <div class="d-flex justify-content-center">
-            <img class="no-data" src="~/images/table no data.gif" alt="لا توجد أجازات" title="لا توجد أجازات">
+            <img class="no-data" src="~/images/table no data.gif" alt="no data" title="no data">
         </div>
     }
 </div>
@@ -153,7 +144,7 @@
 
                     const dayDate = `${day}/${month}/${year}`;
 
-                    const daysOfWeek = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+                    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
                     tbody.innerHTML += `<tr id="id-${emp["employeeId"]}">
                                             <td class="text-center">${i++}</td>
@@ -173,7 +164,7 @@
                                         </tr>`
                     error.innerHTML = ''
                 } else {
-                    error.innerHTML = 'من فضلك أدخل اسم موظف صالح'
+                    error.innerHTML = 'Please enter a valid employee name'
                 }
             })
         }
@@ -187,7 +178,6 @@
                 url: `/Attendence/SearchByDate?startDate=${from}&endDate=${to}`,
                 method: 'GET',
                 success: function (response) {
-                    //console.log(response)
                     setEmployeesAttendance(response)
                 },
                 error: function (xhr, status, error) {
@@ -215,7 +205,7 @@
 
                 const dayDate = `${day}/${month}/${year}`;
 
-                const daysOfWeek = ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
+                const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
                 tbody.innerHTML += `<tr id="id-${emp["employeeId"]}">
                                         <td class="text-center">${i++}</td>
@@ -238,14 +228,14 @@
 
         function DeleteAttendance(id) {
             Swal.fire({
-                title: 'هل أنت متأكد من الحذف؟',
-                text: "لن تستطيع استعادته!!",
+                title: 'Are you sure to delete?',
+                text: "You won't be able to get it back",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'نعم',
-                cancelButtonText: 'لا'
+                confirmButtonText: 'Yes',
+                cancelButtonText: 'No'
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
