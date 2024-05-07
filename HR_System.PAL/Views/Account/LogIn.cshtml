@@ -69,8 +69,8 @@
 
         form * {
             font-family: 'Poppins',sans-serif;
-            color: #1b2e35;
-            letter-spacing: 0.5px;
+/*             color: #1b2e35;
+ */            letter-spacing: 0.5px;
             outline: none;
             border: none;
         }
@@ -150,9 +150,9 @@
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form asp-action="LogIn" class="bg-dark text-white">
+    <form asp-action="LogIn" class="bg-dark">
         <h3 class="text-white">Login</h3>
-        <p class="text-white-50 mb-5 mx-2">Please enter your login and password!</p>
+        <p class="text-white-50 mb-4 mx-2">Please enter your login and password!</p>
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div data-mdb-input-init class="form-outline form-white mb-4" >
             <input asp-for="userName" class="form-control form-control-lg" placeholder="Username" />
