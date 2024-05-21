@@ -10,18 +10,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewData["Title"]</title>
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
 
-    <!-- Font Awesome -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Paper Dashboard CSS -->
+
     <link rel="stylesheet" href="https://demos.creative-tim.com/paper-dashboard-2-pro/assets/css/paper-dashboard.min.css">
 
-    <!-- Custom styles -->
+  
     <style>
-        /* Override default styles here */
+     
         body {
             overflow-x: hidden;
         }
@@ -60,7 +59,7 @@
             .sidebar .nav-link {
                 position: relative;
                 display: block;
-                padding: 10px 15px; /* Adjust padding */
+                padding: 10px 15px;
                 color: #fff;
                 border-radius: 4px;
                 transition: background-color 0.3s;
@@ -79,8 +78,8 @@
       
 
         svg {
-            width: 16px; /* Adjust width */
-            height: 16px; /* Adjust height */
+            width: 16px;
+            height: 16px; 
         }
     </style>
 </head>
@@ -180,32 +179,31 @@
                 <div class="row">
                     <nav class="templatemo-top-nav col-lg-12 col-md-12">
                         <ul class="navbar-nav">
-                            <!-- Your top navigation items go here -->
+                            
                         </ul>
                     </nav>
                 </div>
             </div>
 
             <div class="content">
-                <!-- Page content -->
+            
                 @RenderBody()
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
-    <!-- jQuery -->
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 
-    <!-- Paper Dashboard JS -->
+
     <script src="https://demos.creative-tim.com/paper-dashboard-2-pro/assets/js/paper-dashboard.min.js"></script>
 
-    <!-- AI-generated scripts -->
+
     @await RenderSectionAsync("Scripts", required: false)
 
     <script>
