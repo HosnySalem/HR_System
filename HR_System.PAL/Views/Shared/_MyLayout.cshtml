@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 
-    <link rel="stylesheet" href="https://demos.creative-tim.com/paper-dashboard-2-pro/assets/css/paper-dashboard.min.css">
+@*     <link rel="stylesheet" href="https://demos.creative-tim.com/paper-dashboard-2-pro/assets/css/paper-dashboard.min.css">
+ *@    <link rel="stylesheet" href="./css/dashboard.min.css">
 
   
     <style>
@@ -58,7 +59,7 @@
 
             .sidebar .nav-link {
                 position: relative;
-                display: block;
+               display:block;
                 padding: 10px 15px;
                 color: #fff;
                 border-radius: 4px;
@@ -79,8 +80,10 @@
 
         svg {
             width: 16px;
-            height: 16px; 
+            height: none; 
         }
+
+   
     </style>
 </head>
 <body>
@@ -88,11 +91,11 @@
     <div class="sidebar">
         <div class="logo">
             <a href="#" class="simple-text">HR System</a>
-        </div>
         <ul class="nav">
-
-            <li><a asp-controller="home" asp-action="index" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
-
+            
+                <li>
+                    <a asp-controller="home" asp-action="index" class="active"><i class="fa-solid fa-house"></i> Home</a>
+      
 
             @if (User.Identity.IsAuthenticated)
             {
@@ -170,6 +173,8 @@
                 }
             }
         </ul>
+        </div>
+
     </div>
 
     <!-- Main content -->
